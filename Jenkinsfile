@@ -30,6 +30,7 @@ pipeline {
     
                 googlechatnotification message: message, url: "https://chat.googleapis.com/v1/spaces/AAAAfNYHbig/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=u89eZfp6STAOknfuFlWc3vdY4mUG6hwz55MiCVSub60"
             }
+            cleanWs()
         }
     }
 }
