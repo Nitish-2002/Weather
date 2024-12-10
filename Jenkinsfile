@@ -9,7 +9,7 @@ pipeline {
                 script {
                     env.GIT_COMMIT_MSG = sh(script: 'git log -1 --pretty=%B', returnStdout: true).trim()
                     env.GIT_COMMIT_EMAIL = sh(script: 'git --no-pager show -s --format=%ae', returnStdout: true).trim()
-                    echo "Git committer email: ${env.GIT_COMMIT_EMAIL}"
+                    echo "Git committer email: ${GIT_COMMIT_EMAIL}"
                     echo "${GIT_COMMIT_MSG}"
                 }
             }
