@@ -4,16 +4,7 @@ pipeline {
         LINK="https://dev.bold.divami.com/"
     }
     stages {
-        stage('get_commit_msg') {
-            steps {
-                script {
-                    GIT_COMMIT_MSG = sh(script: 'git log -1 --pretty=%B', returnStdout: true).trim()
-                    GIT_COMMIT_EMAIL = sh(script: 'git --no-pager show -s --format=%ae', returnStdout: true).trim()
-                    echo "Git committer email: ${GIT_COMMIT_EMAIL}"
-                    echo "Commit message: ${GIT_COMMIT_MSG}"
-                }
-            }
-        }
+        
         stage('Hello') {
             steps {
                 echo 'Hello World'
@@ -26,7 +17,6 @@ pipeline {
                 def message = "Project Name: ${JOB_NAME}\n" +
                               "Build Number: ${BUILD_NUMBER}\n" +
                               "Git Branch: ${GIT_BRANCH}\n" +
-                              "Commit Message: ${GIT_COMMIT_MSG}\n" +
                               "Environment: dev\n"
     
                 def buildResult = currentBuild.currentResult
